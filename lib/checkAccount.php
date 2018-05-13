@@ -20,18 +20,22 @@
                 $check_Roles = checkRoles($row_acc_roles['ROLE_ID']);
                 $row_Roles = mysqli_fetch_array($check_Roles);
 
-                if($row_Roles['NAME'] == "Customer"){
+                if($row_Roles['NAME'] == "Admin"){
+                    $_SESSION['username'] = $username;
+                    $_SESSION['role'] = "Admin";
+                    header("location:index.php");
+                } else if($row_Roles['NAME'] == "Customer"){
                     $_SESSION['username'] = $username;
                     $_SESSION['role'] = "Customer";
                     header("location:index.php");
-                }else{
+                } else{
                     header("location:index.php?p=login");
                 }
 
-            }else{
+            } else{
                 $error = "Username and password not correct!!!";
             }
-            echo "<script>alert('".$row_Account."')</script>";
+            // var_dump(mysqli_fetch_array($Account));
         }
     }
 
