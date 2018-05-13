@@ -10,9 +10,6 @@ else
 {
 unset($_SESSION['cart'][$id]);
 }
-// header("location: index.php");
-// header("Location:index.php?p=Cart");
-// echo '<meta http-equiv="refresh" content="0",url=index.php?p=Cart"">';
-echo '<meta http-equiv="refresh" content="0;url=javascript:history.go(-1)">';
+echo '<meta http-equiv="refresh" content="0,url=index.php?p=Cart">';
 // exit();
 ?>
